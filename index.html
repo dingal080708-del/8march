@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>🌷 С 8 Марта, любимая! 🌷</title>
+    <!-- Подключаем красивые шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #8B3A3A 0%, #C45A5A 30%, #E87A7A 70%, #FF9A9A 100%);
+            font-family: 'Cormorant Garamond', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2vmin;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .floating-flower {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.15;
+            font-size: 5vmin;
+            animation: floatFlower 20s infinite linear;
+        }
+
+        @keyframes floatFlower {
+            0% { transform: translateY(100vh) rotate(0deg) scale(0.5); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100px) rotate(360deg) scale(1); opacity: 0; }
+        }
+
+        .sun-rays {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+            animation: sunPulse 8s infinite;
+        }
+
+        @keyframes sunPulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+        }
+
+        .book {
+            max-width: 95vmin;
+            width: 100%;
+            background: rgba(255, 240, 245, 0.2);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: 8vmin;
+            padding: 3vmin;
+            box-shadow: 0 5vmin 8vmin rgba(139, 58, 58, 0.4), inset 0 0 4vmin rgba(255, 215, 0, 0.3), 0 0 0 0.5vmin rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            z-index: 10;
+        }
+
+        .book::before {
+            content: '🌷';
+            position: absolute;
+            top: -2vmin;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 6vmin;
+            filter: drop-shadow(0 1vmin 1.5vmin rgba(255, 215, 0, 0.5));
+            animation: ribbonWave 3s infinite;
+        }
+
+        @keyframes ribbonWave {
+            0%, 100% { transform: translateX(-50%) rotate(-5deg); }
+            50% { transform: translateX(-50%) rotate(5deg); }
+        }
+
+        .book::after {
+            content: '🌸';
+            position: absolute;
+            bottom: -2vmin;
+            right: 4vmin;
+            font-size: 5vmin;
+            opacity: 0.6;
+            animation: flowerSpin 10s infinite linear;
+        }
+
+        @keyframes flowerSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cover {
+            background: rgba(255, 240, 245, 0.4);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 6vmin;
+            padding: 5vmin;
+            text-align: center;
+            border: 0.5vmin solid rgba(255, 215, 0, 0.4);
+            box-shadow: 0 3vmin 4vmin rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cover h1 {
+            font-size: clamp(5rem, 12vw, 8rem);
+            color: #FFD700;
+            text-shadow: 0.2rem 0.2rem 0 #8B3A3A, 0.4rem 0.4rem 0 #6B2A2A, 0 1rem 2rem rgba(255, 215, 0, 0.5);
+            margin-bottom: 2vmin;
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            letter-spacing: 0.2rem;
+            position: relative;
+            animation: titleGlow 3s infinite;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { text-shadow: 0.2rem 0.2rem 0 #8B3A3A, 0.4rem 0.4rem 0 #6B2A2A, 0 1rem 2rem #FFD700; }
+            50% { text-shadow: 0.2rem 0.2rem 0 #8B3A3A, 0.4rem 0.4rem 0 #6B2A2A, 0 2rem 4rem #FFA500; }
+        }
+
+        .cover-emoji {
+            font-size: clamp(6rem, 18vw, 10rem);
+            margin: 2vmin 0;
+            filter: drop-shadow(0 1.5vmin 2.5vmin #FFD700);
+            animation: emojiDance 4s infinite;
+        }
+
+        @keyframes emojiDance {
+            0%, 100% { transform: rotate(-5deg) scale(1); }
+            50% { transform: rotate(5deg) scale(1.1); }
+        }
+
+        .cover-text {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 5vmin;
+            padding: 3vmin;
+            margin: 3vmin 0;
+            border: 0.3vmin solid rgba(255, 215, 0, 0.4);
+        }
+
+        .cover-text p {
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            color: #FFFAF0;
+            margin: 1.5vmin 0;
+            font-weight: 500;
+            text-shadow: 0 0.3vmin 0.8vmin #8B3A3A;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .open-btn {
+            background: rgba(255, 215, 0, 0.3);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 0.5vmin solid #FFD700;
+            padding: 2.5vmin 5vmin;
+            font-size: clamp(2rem, 6vw, 3.2rem);
+            border-radius: 8vmin;
+            color: #FFFAF0;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 1.5vmin 2.5vmin rgba(139, 58, 58, 0.4);
+            transition: 0.2s;
+            margin-top: 3vmin;
+            width: 100%;
+            max-width: 70%;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .open-btn:active {
+            transform: scale(0.97);
+            background: rgba(255, 215, 0, 0.5);
+        }
+
+        .pages {
+            display: none;
+        }
+
+        .header {
+            background: rgba(139, 58, 58, 0.2);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 5vmin;
+            padding: 2vmin 3vmin;
+            margin-bottom: 2.5vmin;
+            border: 0.3vmin solid rgba(255, 215, 0, 0.3);
+        }
+
+        .page-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5vmin;
+        }
+
+        .page-num {
+            background: rgba(255, 215, 0, 0.2);
+            padding: 1.2vmin 3.5vmin;
+            border-radius: 5vmin;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #FFD700;
+            border: 0.2vmin solid rgba(255, 215, 0, 0.5);
+        }
+
+        .march8-badge {
+            background: rgba(255, 215, 0, 0.3);
+            padding: 1.2vmin 3vmin;
+            border-radius: 5vmin;
+            font-size: 2rem;
+            color: #FFD700;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 1vmin;
+        }
+
+        .progress-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5vmin;
+            justify-content: center;
+        }
+
+        .progress-item {
+            background: rgba(139, 58, 58, 0.3);
+            padding: 1vmin 2.5vmin;
+            border-radius: 4vmin;
+            font-size: 1.8rem;
+            color: #FFFAF0;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.8vmin;
+            border: 0.2vmin solid rgba(255, 215, 0, 0.3);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        .slider {
+            width: 100%;
+            overflow: hidden;
+            background: rgba(139, 58, 58, 0.15);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 6vmin;
+            padding: 2.5vmin;
+            border: 0.3vmin solid rgba(255, 215, 0, 0.3);
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slide {
+            flex: 0 0 100%;
+            padding: 2.5vmin;
+            background: rgba(255, 250, 240, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 5vmin;
+            border: 0.3vmin solid rgba(255, 215, 0, 0.3);
+        }
+
+        .slide h2 {
+            font-size: clamp(2.2rem, 6vw, 3.5rem);
+            color: #FFD700;
+            text-align: center;
+            margin-bottom: 2.5vmin;
+            display: flex;
+            justify-content: center;
+            gap: 2vmin;
+            text-shadow: 0 0.3vmin 0.8vmin #8B3A3A;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .game-area {
+            min-height: 45vmin;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 5vmin;
+            padding: 2vmin;
+            border: 0.3vmin solid rgba(255, 215, 0, 0.2);
+        }
+
+        .game-hint {
+            text-align: center;
+            color: #FFFAF0;
+            font-size: 1.8rem;
+            margin-top: 2vmin;
+            background: rgba(139, 58, 58, 0.3);
+            padding: 1.5vmin;
+            border-radius: 4vmin;
+            font-style: italic;
+            border: 0.2vmin solid rgba(255, 215, 0, 0.3);
+        }
+
+        /* ИГРА 1: Тюльпаны */
+        #game1 {
+            width: 100%;
+            max-width: 65vmin;
+            height: auto;
+            aspect-ratio: 500/300;
+            border-radius: 4vmin;
+            border: 0.5vmin solid #FFD700;
+            background: rgba(255, 250, 240, 0.2);
+            box-shadow: 0 1.5vmin 2.5vmin rgba(0, 0, 0, 0.3);
+            touch-action: none;
+        }
+
+        /* ИГРА 2: Сердечки */
+        .grid-5x5 {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5vmin;
+            width: 100%;
+            max-width: 55vmin;
+        }
+
+        .card {
+            aspect-ratio: 1;
+            background: rgba(255, 215, 0, 0.2);
+            border: 0.3vmin solid #FFD700;
+            border-radius: 2.5vmin;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            box-shadow: 0 0.6vmin 0 #8B3A3A;
+            cursor: pointer;
+            transition: 0.1s;
+            color: #FFFAF0;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        .card:active {
+            transform: translateY(0.4vmin);
+            box-shadow: 0 0.2vmin 0 #8B3A3A;
+        }
+
+        .card.opened {
+            background: rgba(255, 215, 0, 0.4);
+            box-shadow: 0 0 3vmin #FFD700;
+            animation: cardGlow 1s infinite;
+        }
+
+        @keyframes cardGlow {
+            0%, 100% { box-shadow: 0 0 3vmin #FFD700; }
+            50% { box-shadow: 0 0 5vmin #FFA500; }
+        }
+
+        .card.mistake {
+            background: rgba(139, 58, 58, 0.6);
+            animation: shake 0.2s;
+        }
+
+        @keyframes shake {
+            0%,100% { transform: translateX(0); }
+            25% { transform: translateX(-0.8vmin); }
+            75% { transform: translateX(0.8vmin); }
+        }
+
+        .click-area {
+            width: 100%;
+            max-width: 55vmin;
+            height: 35vmin;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 4vmin;
+            border: 0.5vmin dashed #FFD700;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .target {
+            position: absolute;
+            font-size: 7vmin;
+            cursor: pointer;
+            filter: drop-shadow(0 0.8vmin 1.5vmin #FFD700);
+            animation: targetFloat 2s infinite;
+        }
+
+        @keyframes targetFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-0.8vmin) rotate(5deg); }
+        }
+
+        #game4 {
+            width: 100%;
+            max-width: 65vmin;
+            height: auto;
+            aspect-ratio: 500/300;
+            border-radius: 4vmin;
+            border: 0.5vmin solid #FFD700;
+            background: #2c1a0b;
+        }
+
+        .controls {
+            display: flex;
+            gap: 2vmin;
+            margin-top: 2vmin;
+            justify-content: center;
+        }
+
+        .ctrl-btn {
+            background: rgba(255, 215, 0, 0.2);
+            border: 0.3vmin solid #FFD700;
+            width: 9vmin;
+            height: 9vmin;
+            border-radius: 5vmin;
+            font-size: 4vmin;
+            color: #FFD700;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            transition: 0.1s;
+        }
+
+        .ctrl-btn:active {
+            transform: scale(0.9);
+            background: rgba(255, 215, 0, 0.4);
+        }
+
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5vmin;
+            width: 100%;
+            max-width: 55vmin;
+        }
+
+        .m-card {
+            aspect-ratio: 1;
+            background: rgba(255, 215, 0, 0.2);
+            border: 0.3vmin solid #FFD700;
+            border-radius: 3vmin;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4.5vmin;
+            box-shadow: 0 0.6vmin 0 #8B3A3A;
+            cursor: pointer;
+            color: #FFFAF0;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            animation: cardFloat 3s infinite;
+        }
+
+        .m-card:nth-child(2) { animation-delay: 0.2s; }
+        .m-card:nth-child(3) { animation-delay: 0.4s; }
+        .m-card:nth-child(4) { animation-delay: 0.6s; }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-0.4vmin); }
+        }
+
+        .m-card:active {
+            transform: translateY(0.4vmin);
+            box-shadow: 0 0.2vmin 0 #8B3A3A;
+        }
+
+        .m-card.flipped {
+            background: rgba(255, 215, 0, 0.4);
+            box-shadow: 0 0 4vmin #FFD700;
+            animation: flippedPulse 1s infinite;
+        }
+
+        @keyframes flippedPulse {
+            0%, 100% { box-shadow: 0 0 4vmin #FFD700; }
+            50% { box-shadow: 0 0 6vmin #FFA500; }
+        }
+
+        .notes-area {
+            width: 100%;
+            max-width: 55vmin;
+            height: 35vmin;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 4vmin;
+            border: 0.5vmin dashed #FFD700;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .note {
+            position: absolute;
+            font-size: 7vmin;
+            cursor: pointer;
+            filter: drop-shadow(0 0.8vmin 1.5vmin #FFD700);
+            animation: noteSpin 2s infinite;
+        }
+
+        @keyframes noteSpin {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(10deg); }
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 3vmin;
+            gap: 2vmin;
+        }
+
+        .nav-btn {
+            background: rgba(255, 215, 0, 0.2);
+            border: 0.4vmin solid #FFD700;
+            width: 10vmin;
+            height: 10vmin;
+            border-radius: 6vmin;
+            font-size: 5vmin;
+            color: #FFD700;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            transition: 0.1s;
+        }
+
+        .nav-btn:active {
+            transform: scale(0.9);
+            background: rgba(255, 215, 0, 0.4);
+        }
+
+        .indicator {
+            background: rgba(139, 58, 58, 0.3);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            padding: 1.5vmin 4vmin;
+            border-radius: 5vmin;
+            font-size: 2.2rem;
+            color: #FFD700;
+            border: 0.2vmin solid rgba(255, 215, 0, 0.5);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 2.5vmin;
+            background: rgba(139, 58, 58, 0.3);
+            border-radius: 3vmin;
+            margin-top: 2.5vmin;
+            overflow: hidden;
+            border: 0.3vmin solid rgba(255, 215, 0, 0.4);
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+            background-size: 200% 100%;
+            width: 0%;
+            transition: width 0.3s;
+            animation: progressMove 2s linear infinite;
+        }
+
+        @keyframes progressMove {
+            from { background-position: 0 0; }
+            to { background-position: 200% 0; }
+        }
+
+        .progress-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #8B3A3A;
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: rgba(255, 250, 240, 0.8);
+            padding: 0.3vmin 2vmin;
+            border-radius: 3vmin;
+        }
+
+        .final-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-photo {
+            width: 35vmin;
+            height: 35vmin;
+            background: rgba(255, 215, 0, 0.15);
+            border-radius: 6vmin;
+            border: 0.6vmin solid #FFD700;
+            overflow: hidden;
+            margin: 2vmin auto;
+            box-shadow: 0 2vmin 4vmin rgba(0, 0, 0, 0.3);
+            animation: photoFloat 3s infinite;
+        }
+
+        @keyframes photoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-0.8vmin); }
+        }
+
+        .main-preview, .main-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10vmin;
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.2), rgba(139, 58, 58, 0.2));
+            object-fit: cover;
+        }
+
+        .photo-row {
+            display: flex;
+            gap: 2vmin;
+            justify-content: center;
+            margin: 3vmin 0;
+            flex-wrap: wrap;
+        }
+
+        .photo-frame {
+            width: 16vmin;
+            height: 16vmin;
+            background: rgba(255, 215, 0, 0.15);
+            border-radius: 4vmin;
+            border: 0.5vmin solid #FFD700;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 1.5vmin 2.5vmin rgba(0, 0, 0, 0.3);
+            animation: frameFloat 3s infinite;
+        }
+
+        .photo-frame:nth-child(2) { animation-delay: 0.2s; }
+        .photo-frame:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes frameFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-0.6vmin); }
+        }
+
+        .photo-preview {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-placeholder {
+            display: none;
+        }
+
+        .letter {
+            background: rgba(139, 58, 58, 0.2);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 6vmin;
+            padding: 3.5vmin;
+            margin: 3vmin 0;
+            border: 0.4vmin solid #FFD700;
+            width: 100%;
+            animation: letterGlow 2s infinite;
+        }
+
+        @keyframes letterGlow {
+            0%, 100% { box-shadow: 0 0.8vmin 2.5vmin rgba(255, 215, 0, 0.3); }
+            50% { box-shadow: 0 1.5vmin 4vmin rgba(255, 215, 0, 0.6); }
+        }
+
+        .letter h3 {
+            font-size: 4vmin;
+            color: #FFD700;
+            margin-bottom: 2vmin;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .letter p {
+            font-size: 2.2vmin;
+            color: #FFFAF0;
+            margin: 1.5vmin 0;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .signature {
+            font-size: 3.8vmin;
+            color: #FFD700;
+            font-family: 'Dancing Script', cursive;
+            border-top: 0.2vmin dashed rgba(255, 215, 0, 0.5);
+            padding-top: 2vmin;
+            margin-top: 2vmin;
+            text-align: center;
+        }
+
+        .restart {
+            background: rgba(255, 215, 0, 0.2);
+            border: 0.5vmin solid #FFD700;
+            padding: 2vmin 6vmin;
+            font-size: 2.5rem;
+            border-radius: 8vmin;
+            color: #FFD700;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 2.5vmin;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            transition: 0.2s;
+            width: 100%;
+            max-width: 50%;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .restart:active {
+            transform: scale(0.95);
+            background: rgba(255, 215, 0, 0.4);
+        }
+
+        .march8-title {
+            font-size: 3.5vmin;
+            color: #FFD700;
+            text-align: center;
+            margin-bottom: 1.5vmin;
+            font-family: 'Dancing Script', cursive;
+            animation: titleWave 2s infinite;
+        }
+
+        @keyframes titleWave {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Фоновые цветы -->
+    <div class="floating-flower" style="left: 5%; animation-duration: 15s;">🌷</div>
+    <div class="floating-flower" style="left: 25%; animation-duration: 18s;">🌸</div>
+    <div class="floating-flower" style="left: 45%; animation-duration: 20s;">🌹</div>
+    <div class="floating-flower" style="left: 65%; animation-duration: 16s;">🌺</div>
+    <div class="floating-flower" style="left: 85%; animation-duration: 22s;">🌼</div>
+    <div class="sun-rays"></div>
+
+    <!-- Главная книга -->
+    <div class="book">
+        <!-- Обложка -->
+        <div class="cover" id="cover">
+            <div class="march8-title">С 8 Марта!</div>
+            <h1>Книга любви</h1>
+            <div class="cover-emoji">🌷 💐 🌸</div>
+            <div class="cover-text">
+                <p>Моей самой любимой</p>
+                <p>✨ 6 весенних историй ✨</p>
+                <p>Собери все цветы и сердечки</p>
+            </div>
+            <button class="open-btn" onclick="openBook()">🌸 Открыть книгу</button>
+        </div>
+
+        <!-- Страницы -->
+        <div class="pages" id="pages">
+            <!-- Верхняя панель -->
+            <div class="header">
+                <div class="page-row">
+                    <div class="page-num">Стр. <span id="currentPage">1</span>/7</div>
+                    <div class="march8-badge">🌷 8 Марта 🌷</div>
+                </div>
+                <div class="progress-row" id="progress">
+                    <span class="progress-item">🌷 <span id="p1">0</span>/3</span>
+                    <span class="progress-item">❤️ <span id="p2">0</span>/8</span>
+                    <span class="progress-item">💐 <span id="p3">0</span>/3</span>
+                    <span class="progress-item">🍎 <span id="p4">0</span>/5</span>
+                    <span class="progress-item">⭐ <span id="p5">0</span>/4</span>
+                    <span class="progress-item">🎵 <span id="p6">0</span>/4</span>
+                </div>
+            </div>
+
+            <!-- Слайдер -->
+            <div class="slider">
+                <div class="slides" id="slides">
+                    <!-- Страница 1 -->
+                    <div class="slide">
+                        <h2><span>🌷</span> Весенние цветы <span>🌷</span></h2>
+                        <div class="game-area">
+                            <canvas id="game1" width="500" height="300"></canvas>
+                        </div>
+                        <div class="game-hint">Собирай тюльпаны 🌷, кактусы не трогай</div>
+                    </div>
+
+                    <!-- Страница 2 -->
+                    <div class="slide">
+                        <h2><span>❤️</span> Сердечки с цветами <span>❤️</span></h2>
+                        <div class="game-area">
+                            <div id="game2" class="grid-5x5"></div>
+                        </div>
+                        <div class="game-hint">Найди 8 сердечек (😢 сброс)</div>
+                    </div>
+
+                    <!-- Страница 3 -->
+                    <div class="slide">
+                        <h2><span>💐</span> Букет признаний <span>💐</span></h2>
+                        <div class="game-area">
+                            <div id="game3" class="click-area"></div>
+                        </div>
+                        <div class="game-hint">Лови весенние букеты</div>
+                    </div>
+
+                    <!-- Страница 4 -->
+                    <div class="slide">
+                        <h2><span>🍎</span> Цветущий сад <span>🍎</span></h2>
+                        <div class="game-area" style="flex-direction: column;">
+                            <canvas id="game4" width="500" height="300"></canvas>
+                            <div class="controls">
+                                <button class="ctrl-btn" onclick="snakeDir('up')">↑</button>
+                                <button class="ctrl-btn" onclick="snakeDir('left')">←</button>
+                                <button class="ctrl-btn" onclick="snakeDir('down')">↓</button>
+                                <button class="ctrl-btn" onclick="snakeDir('right')">→</button>
+                            </div>
+                        </div>
+                        <div class="game-hint">Собери яблочки в саду</div>
+                    </div>
+
+                    <!-- Страница 5 -->
+                    <div class="slide">
+                        <h2><span>⭐</span> Весенние пары <span>⭐</span></h2>
+                        <div class="game-area">
+                            <div id="game5" class="memory-grid"></div>
+                        </div>
+                        <div class="game-hint">Найди 4 пары цветов</div>
+                    </div>
+
+                    <!-- Страница 6 -->
+                    <div class="slide">
+                        <h2><span>🎵</span> Музыка весны <span>🎵</span></h2>
+                        <div class="game-area">
+                            <div id="game6" class="notes-area"></div>
+                        </div>
+                        <div class="game-hint">Собери весенние ноты</div>
+                    </div>
+
+                    <!-- Страница 7: Финал с ТВОИМИ ФОТО -->
+                    <div class="slide">
+                        <h2><span>💐</span> С 8 Марта! <span>💐</span></h2>
+                        <div class="game-area">
+                            <div class="final-content">
+                                <!-- Главное фото (первое фото будет главным) -->
+                                <div class="main-photo">
+                                    <img class="main-preview" src="https://ru.cdn.pixsafe.online/albums/EGEvK/6716d3b3-1413-4423-a599-67f230423d25_RLRQ4.jpg" style="display:block; width:100%; height:100%; object-fit:cover;">
+                                </div>
+
+                                <!-- Три рамки с твоими фото -->
+                                <div class="photo-row">
+                                    <div class="photo-frame" id="frame1">
+                                        <img src="https://ru.cdn.pixsafe.online/albums/EGEvK/6716d3b3-1413-4423-a599-67f230423d25_RLRQ4.jpg" class="photo-preview" style="display:block;">
+                                    </div>
+                                    <div class="photo-frame" id="frame2">
+                                        <img src="https://ru.cdn.pixsafe.online/albums/hsLyD/e0c819aa-92bd-4541-b18b-efc0330eb981_K9QbT.jpg" class="photo-preview" style="display:block;">
+                                    </div>
+                                    <div class="photo-frame" id="frame3">
+                                        <img src="https://ru.cdn.pixsafe.online/albums/xBTMR/1285d807-26dd-4cd0-ac60-3eef89e0c8d0_27kRV.jpg" class="photo-preview" style="display:block;">
+                                    </div>
+                                </div>
+
+                                <!-- Письмо -->
+                                <div class="letter" id="letter">
+                                    <h3 id="letterTitle">С 8 Марта, любимая!</h3>
+                                    <p id="letterText">Ты собрала все весенние цветы и сердечки. Пусть этот день будет таким же прекрасным, как ты!</p>
+                                    <p id="personalMessage">Спасибо, что ты есть в моей жизни 💕</p>
+                                    <div class="signature" id="signature">Твой навсегда</div>
+                                </div>
+
+                                <button class="restart" onclick="restartBook()">🌷 Пройти заново</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Навигация -->
+            <div class="nav">
+                <button class="nav-btn" onclick="turnPage(-1)">←</button>
+                <span class="indicator" id="indicator">1/7</span>
+                <button class="nav-btn" onclick="turnPage(1)">→</button>
+            </div>
+
+            <!-- Прогресс -->
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+                <div class="progress-label" id="progressLabel">0/27</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ========== СОСТОЯНИЕ ==========
+        let currentPage = 0;
+        let collected = { g1:0, g2:0, g3:0, g4:0, g5:0, g6:0 };
+        const max = { g1:3, g2:8, g3:3, g4:5, g5:4, g6:4 };
+        let completed = { g1:false, g2:false, g3:false, g4:false, g5:false, g6:false };
+
+        // Весенние тексты к 8 Марта
+        const loveTexts = [
+            { title:"Самая красивая", text:"Твоя красота расцветает как весенние тюльпаны. Ты прекрасна в этот день!" },
+            { title:"Моё сердце", text:"Твоё сердце бьётся в ритме весны. С тобой каждый день как праздник." },
+            { title:"Моя радость", text:"Твоя улыбка ярче весеннего солнца. С 8 Марта, любимая!" },
+            { title:"Моя нежность", text:"Ты нежнее первых весенних цветов. Спасибо, что ты есть." },
+            { title:"Моя единственная", text:"Ты как первый весенний цветок - единственная и неповторимая." },
+            { title:"Моя муза", text:"Ты вдохновляешь меня каждый день. С праздником весны!" }
+        ];
+
+        const personalMessages = [
+            "Ты лучше всех подарков в этот день!",
+            "Пусть каждый день будет таким же прекрасным, как ты.",
+            "Я люблю тебя больше весеннего солнца.",
+            "Ты моё самое большое счастье.",
+            "Спасибо, что ты есть в моей жизни."
+        ];
+
+        // ========== ОТКРЫТЬ КНИГУ ==========
+        function openBook() {
+            document.getElementById('cover').style.display = 'none';
+            document.getElementById('pages').style.display = 'block';
+            resetAll();
+            startGames();
+            updateProgress();
+        }
+
+        // ========== НАВИГАЦИЯ ==========
+        function turnPage(direction) {
+            currentPage += direction;
+            if (currentPage < 0) currentPage = 0;
+            if (currentPage > 6) currentPage = 6;
+
+            document.getElementById('slides').style.transform = `translateX(-${currentPage * 100}%)`;
+            document.getElementById('indicator').innerHTML = `${currentPage+1}/7`;
+            document.getElementById('currentPage').innerHTML = currentPage+1;
+
+            if (currentPage === 6) updateLetter();
+        }
+
+        // ========== СБРОС ==========
+        function resetAll() {
+            collected = { g1:0, g2:0, g3:0, g4:0, g5:0, g6:0 };
+            completed = { g1:false, g2:false, g3:false, g4:false, g5:false, g6:false };
+            currentPage = 0;
+            document.getElementById('slides').style.transform = 'translateX(0)';
+            document.getElementById('indicator').innerHTML = '1/7';
+            document.getElementById('currentPage').innerHTML = '1';
+        }
+
+        // ========== ПРОГРЕСС ==========
+        function updateProgress() {
+            const total = max.g1 + max.g2 + max.g3 + max.g4 + max.g5 + max.g6;
+            const current = collected.g1 + collected.g2 + collected.g3 + collected.g4 + collected.g5 + collected.g6;
+
+            document.getElementById('progressFill').style.width = (current / total * 100) + '%';
+            document.getElementById('progressLabel').innerHTML = current + '/' + total;
+
+            document.getElementById('p1').innerHTML = collected.g1;
+            document.getElementById('p2').innerHTML = collected.g2;
+            document.getElementById('p3').innerHTML = collected.g3;
+            document.getElementById('p4').innerHTML = collected.g4;
+            document.getElementById('p5').innerHTML = collected.g5;
+            document.getElementById('p6').innerHTML = collected.g6;
+        }
+
+        // ========== ПИСЬМО ==========
+        function updateLetter() {
+            const r1 = Math.floor(Math.random() * loveTexts.length);
+            const r2 = Math.floor(Math.random() * personalMessages.length);
+            document.getElementById('letterTitle').innerHTML = loveTexts[r1].title + '!';
+            document.getElementById('letterText').innerHTML = loveTexts[r1].text;
+            document.getElementById('personalMessage').innerHTML = personalMessages[r2];
+        }
+
+        // ========== ИГРА 1: ТЮЛЬПАНЫ ==========
+        let game1Items = [];
+        let game1Interval;
+        const canvas1 = document.getElementById('game1');
+        const ctx1 = canvas1.getContext('2d');
+
+        function startGame1() {
+            if (completed.g1) return;
+
+            if (game1Interval) clearInterval(game1Interval);
+
+            setInterval(() => {
+                if (completed.g1 || collected.g1 >= max.g1) return;
+                game1Items.push({
+                    x: Math.random() * (canvas1.width - 60) + 30,
+                    y: 0,
+                    type: Math.random() > 0.3 ? 'flower' : 'cactus',
+                    speed: 1 + Math.random() * 2
+                });
+            }, 600);
+
+            setInterval(() => {
+                if (completed.g1) return;
+                ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
+
+                for (let i = game1Items.length - 1; i >= 0; i--) {
+                    game1Items[i].y += game1Items[i].speed;
+                    if (game1Items[i].y > canvas1.height + 20) {
+                        game1Items.splice(i, 1);
+                    }
+                }
+
+                game1Items.forEach(item => {
+                    ctx1.font = '40px Arial';
+                    ctx1.shadowColor = '#FFD700';
+                    ctx1.shadowBlur = 10;
+                    ctx1.fillText(item.type === 'flower' ? '🌷' : '🌵', item.x, item.y);
+                });
+            }, 30);
+        }
+
+        canvas1.addEventListener('click', handleGame1Click);
+        canvas1.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            handleGame1Click(e);
+        });
+
+        function handleGame1Click(e) {
+            e.preventDefault();
+            if (completed.g1 || collected.g1 >= max.g1) return;
+
+            const rect = canvas1.getBoundingClientRect();
+            const scaleX = canvas1.width / rect.width;
+            const scaleY = canvas1.height / rect.height;
+
+            let x, y;
+            if (e.touches) {
+                x = (e.touches[0].clientX - rect.left) * scaleX;
+                y = (e.touches[0].clientY - rect.top) * scaleY;
+            } else {
+                x = (e.clientX - rect.left) * scaleX;
+                y = (e.clientY - rect.top) * scaleY;
+            }
+
+            for (let i = game1Items.length - 1; i >= 0; i--) {
+                const item = game1Items[i];
+                if (Math.hypot(x - item.x, y - item.y) < 25) {
+                    if (item.type === 'flower') {
+                        collected.g1++;
+                        if (collected.g1 >= max.g1) completed.g1 = true;
+                    }
+                    game1Items.splice(i, 1);
+                    updateProgress();
+                    break;
+                }
+            }
+        }
+
+        // ========== ИГРА 2: СЕРДЕЧКИ ==========
+        let game2Board = [];
+        let game2Opened = [];
+        let game2Locked = false;
+
+        function startGame2() {
+            if (completed.g2) return;
+
+            game2Board = [];
+            for (let i = 0; i < 8; i++) game2Board.push('❤️');
+            for (let i = 0; i < 3; i++) game2Board.push('😢');
+            for (let i = 0; i < 14; i++) game2Board.push('🌸');
+
+            for (let i = game2Board.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [game2Board[i], game2Board[j]] = [game2Board[j], game2Board[i]];
+            }
+
+            game2Opened = new Array(25).fill(false);
+            game2Locked = false;
+            renderGame2();
+        }
+
+        function renderGame2() {
+            const grid = document.getElementById('game2');
+            grid.innerHTML = '';
+
+            for (let i = 0; i < 25; i++) {
+                const card = document.createElement('div');
+                card.className = 'card' + (game2Opened[i] ? ' opened' : '');
+                card.textContent = game2Opened[i] ? game2Board[i] : '?';
+
+                card.onclick = () => {
+                    if (completed.g2 || game2Opened[i] || game2Locked) return;
+
+                    game2Opened[i] = true;
+
+                    if (game2Board[i] === '❤️') {
+                        collected.g2++;
+                        if (collected.g2 >= max.g2) completed.g2 = true;
+                        renderGame2();
+                        updateProgress();
+                    }
+                    else if (game2Board[i] === '😢') {
+                        game2Locked = true;
+                        for (let j = 0; j < 25; j++) game2Opened[j] = true;
+                        renderGame2();
+                        card.classList.add('mistake');
+                        collected.g2 = 0;
+                        updateProgress();
+
+                        setTimeout(() => {
+                            if (!completed.g2) {
+                                for (let j = 0; j < 25; j++) game2Opened[j] = false;
+                                game2Locked = false;
+                                renderGame2();
+                            }
+                        }, 2000);
+                    }
+                    else {
+                        renderGame2();
+                    }
+                };
+                grid.appendChild(card);
+            }
+        }
+
+        // ========== ИГРА 3: БУКЕТЫ ==========
+        let game3Active = true;
+        let game3Timeout;
+
+        function startGame3() {
+            if (completed.g3) return;
+
+            game3Active = true;
+            if (!completed.g3) collected.g3 = 0;
+            document.getElementById('game3').innerHTML = '';
+            spawnGame3();
+        }
+
+        function spawnGame3() {
+            if (!game3Active || completed.g3 || collected.g3 >= max.g3) return;
+
+            const area = document.getElementById('game3');
+            const types = ['💐', '🌸', '🌷', '🌹', '🌺'];
+
+            const item = document.createElement('div');
+            item.className = 'target';
+            item.textContent = types[Math.floor(Math.random() * types.length)];
+            item.style.left = Math.random() * (area.clientWidth - 60) + 'px';
+            item.style.top = Math.random() * (area.clientHeight - 60) + 'px';
+
+            item.onclick = () => {
+                if (completed.g3 || collected.g3 >= max.g3) return;
+
+                collected.g3++;
+                if (collected.g3 >= max.g3) {
+                    completed.g3 = true;
+                    game3Active = false;
+                    area.innerHTML = '<div style="color:#FFD700; text-align:center; padding:50px;">🌷 Букет собран!</div>';
+                }
+                updateProgress();
+                item.remove();
+                if (!completed.g3) spawnGame3();
+            };
+
+            area.appendChild(item);
+
+            if (game3Timeout) clearTimeout(game3Timeout);
+            game3Timeout = setTimeout(() => {
+                if (item.parentNode && !completed.g3) {
+                    item.remove();
+                    spawnGame3();
+                }
+            }, 1500);
+        }
+
+        // ========== ИГРА 4: ЗМЕЙКА ==========
+        let snake = [];
+        let snakeFood = {};
+        let snakeDirCurrent = 'right';
+        let snakeInterval;
+        let snakeActive = true;
+        let snakeDead = false;
+        const canvas4 = document.getElementById('game4');
+        const ctx4 = canvas4.getContext('2d');
+
+        function startGame4() {
+            if (completed.g4) return;
+
+            resetSnake();
+
+            if (snakeInterval) clearInterval(snakeInterval);
+            snakeInterval = setInterval(updateSnake, 200);
+        }
+
+        function resetSnake() {
+            snake = [{x: 10, y: 6}];
+            snakeDirCurrent = 'right';
+            snakeActive = true;
+            snakeDead = false;
+            if (!completed.g4) collected.g4 = 0;
+            placeFood();
+            drawSnake();
+        }
+
+        function placeFood() {
+            do {
+                snakeFood = {
+                    x: Math.floor(Math.random() * 18),
+                    y: Math.floor(Math.random() * 12)
+                };
+            } while (snake.some(s => s.x === snakeFood.x && s.y === snakeFood.y));
+        }
+
+        function updateSnake() {
+            if (!snakeActive || completed.g4 || snakeDead) return;
+
+            let head = {...snake[0]};
+
+            if (snakeDirCurrent === 'right') head.x++;
+            else if (snakeDirCurrent === 'left') head.x--;
+            else if (snakeDirCurrent === 'up') head.y--;
+            else if (snakeDirCurrent === 'down') head.y++;
+
+            if (head.x < 0 || head.x >= 18 || head.y < 0 || head.y >= 12) {
+                snakeDead = true;
+                setTimeout(() => {
+                    if (!completed.g4) resetSnake();
+                }, 1000);
+                drawSnake();
+                return;
+            }
+
+            if (snake.some(s => s.x === head.x && s.y === head.y)) {
+                snakeDead = true;
+                setTimeout(() => {
+                    if (!completed.g4) resetSnake();
+                }, 1000);
+                drawSnake();
+                return;
+            }
+
+            snake.unshift(head);
+
+            if (head.x === snakeFood.x && head.y === snakeFood.y) {
+                collected.g4++;
+                if (collected.g4 >= max.g4) {
+                    completed.g4 = true;
+                    snakeActive = false;
+                }
+                updateProgress();
+                placeFood();
+            } else {
+                snake.pop();
+            }
+
+            drawSnake();
+        }
+
+        function drawSnake() {
+            ctx4.clearRect(0, 0, canvas4.width, canvas4.height);
+
+            ctx4.fillStyle = '#2c1a0b';
+            ctx4.fillRect(0, 0, canvas4.width, canvas4.height);
+
+            snake.forEach((seg, i) => {
+                ctx4.fillStyle = i === 0 ? '#FFD700' : '#FFA500';
+                ctx4.shadowColor = '#FFD700';
+                ctx4.shadowBlur = 10;
+                ctx4.fillRect(seg.x * 25 + 2, seg.y * 25 + 2, 21, 21);
+            });
+
+            ctx4.shadowBlur = 15;
+            ctx4.font = '25px Arial';
+            ctx4.fillStyle = 'white';
+            ctx4.fillText('🍎', snakeFood.x * 25 + 4, snakeFood.y * 25 + 20);
+
+            if (snakeDead) {
+                ctx4.fillStyle = 'rgba(0,0,0,0.5)';
+                ctx4.fillRect(0, 0, canvas4.width, canvas4.height);
+                ctx4.fillStyle = '#FFD700';
+                ctx4.font = '22px "Playfair Display"';
+                ctx4.textAlign = 'center';
+                ctx4.fillText('🌷 Попробуй ещё', canvas4.width/2, canvas4.height/2);
+            }
+
+            if (completed.g4) {
+                ctx4.fillStyle = 'rgba(255,215,0,0.3)';
+                ctx4.fillRect(0, 0, canvas4.width, canvas4.height);
+                ctx4.fillStyle = '#FFD700';
+                ctx4.font = '26px "Playfair Display"';
+                ctx4.textAlign = 'center';
+                ctx4.fillText('🌸 Ура!', canvas4.width/2, canvas4.height/2);
+            }
+        }
+
+        function snakeDir(dir) {
+            if (snakeDead || !snakeActive || completed.g4) return;
+
+            if ((snakeDirCurrent === 'right' && dir === 'left') ||
+                (snakeDirCurrent === 'left' && dir === 'right') ||
+                (snakeDirCurrent === 'up' && dir === 'down') ||
+                (snakeDirCurrent === 'down' && dir === 'up')) {
+                return;
+            }
+            snakeDirCurrent = dir;
+        }
+
+        // ========== ИГРА 5: МЕМОРИ ==========
+        let game5Cards = [];
+        let game5Flipped = [];
+        let game5Matched = [];
+        let game5Locked = false;
+        let game5First = null;
+
+        function startGame5() {
+            if (completed.g5) return;
+
+            const symbols = ['🌷', '🌷', '🌸', '🌸', '🌹', '🌹', '🌺', '🌺'];
+            for (let i = symbols.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [symbols[i], symbols[j]] = [symbols[j], symbols[i]];
+            }
+
+            game5Cards = symbols;
+            game5Flipped = new Array(8).fill(false);
+            game5Matched = new Array(8).fill(false);
+            game5Locked = false;
+            game5First = null;
+            renderGame5();
+        }
+
+        function renderGame5() {
+            const grid = document.getElementById('game5');
+            grid.innerHTML = '';
+
+            for (let i = 0; i < 8; i++) {
+                const card = document.createElement('div');
+                card.className = 'm-card' + (game5Flipped[i] || game5Matched[i] ? ' flipped' : '');
+                card.textContent = (game5Flipped[i] || game5Matched[i]) ? game5Cards[i] : '?';
+
+                card.onclick = () => {
+                    if (game5Locked || game5Matched[i] || game5Flipped[i] || completed.g5) return;
+
+                    game5Flipped[i] = true;
+
+                    if (game5First === null) {
+                        game5First = i;
+                    } else {
+                        game5Locked = true;
+
+                        if (game5Cards[game5First] === game5Cards[i]) {
+                            game5Matched[game5First] = true;
+                            game5Matched[i] = true;
+                            collected.g5++;
+
+                            if (collected.g5 >= max.g5) completed.g5 = true;
+
+                            game5Flipped[game5First] = false;
+                            game5Flipped[i] = false;
+                            game5First = null;
+                            game5Locked = false;
+                            updateProgress();
+                        } else {
+                            setTimeout(() => {
+                                game5Flipped[game5First] = false;
+                                game5Flipped[i] = false;
+                                game5First = null;
+                                game5Locked = false;
+                                renderGame5();
+                            }, 1000);
+                        }
+                    }
+                    renderGame5();
+                };
+                grid.appendChild(card);
+            }
+        }
+
+        // ========== ИГРА 6: НОТЫ ==========
+        let game6Active = true;
+        let game6Timeout;
+
+        function startGame6() {
+            if (completed.g6) return;
+
+            game6Active = true;
+            if (!completed.g6) collected.g6 = 0;
+            document.getElementById('game6').innerHTML = '';
+            spawnGame6();
+        }
+
+        function spawnGame6() {
+            if (!game6Active || completed.g6 || collected.g6 >= max.g6) return;
+
+            const area = document.getElementById('game6');
+
+            const note = document.createElement('div');
+            note.className = 'note';
+            note.textContent = '🎵';
+            note.style.left = Math.random() * (area.clientWidth - 60) + 'px';
+            note.style.top = Math.random() * (area.clientHeight - 60) + 'px';
+
+            note.onclick = () => {
+                if (completed.g6 || collected.g6 >= max.g6) return;
+
+                collected.g6++;
+                if (collected.g6 >= max.g6) {
+                    completed.g6 = true;
+                    game6Active = false;
+                    area.innerHTML = '<div style="color:#FFD700; text-align:center; padding:50px;">🎵 Весенняя музыка</div>';
+                }
+                updateProgress();
+                note.remove();
+                if (!completed.g6) spawnGame6();
+            };
+
+            area.appendChild(note);
+
+            if (game6Timeout) clearTimeout(game6Timeout);
+            game6Timeout = setTimeout(() => {
+                if (note.parentNode && !completed.g6) {
+                    note.remove();
+                    spawnGame6();
+                }
+            }, 1000);
+        }
+
+        // ========== СТАРТ ВСЕХ ИГР ==========
+        function startGames() {
+            startGame1();
+            startGame2();
+            startGame3();
+            startGame4();
+            startGame5();
+            startGame6();
+            updateProgress();
+        }
+
+        // Управление с клавиатуры для змейки (оставлено для компьютера, на телефоне не мешает)
+        document.addEventListener('keydown', (e) => {
+            if (currentPage === 3) {
+                if (e.key === 'ArrowUp') { snakeDir('up'); e.preventDefault(); }
+                else if (e.key === 'ArrowDown') { snakeDir('down'); e.preventDefault(); }
+                else if (e.key === 'ArrowLeft') { snakeDir('left'); e.preventDefault(); }
+                else if (e.key === 'ArrowRight') { snakeDir('right'); e.preventDefault(); }
+            }
+        });
+    </script>
+</body>
+</html>
