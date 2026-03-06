@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>🌷 С 8 Марта, любимая! 🌷</title>
     <!-- Подключаем красивые шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,27 +14,37 @@
             padding: 0;
             box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        html {
+            font-size: 16px;
         }
 
         body {
             min-height: 100vh;
+            min-height: -webkit-fill-available;
             background: linear-gradient(135deg, #8B3A3A 0%, #C45A5A 30%, #E87A7A 70%, #FF9A9A 100%);
             font-family: 'Cormorant Garamond', serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 2vmin;
+            padding: 8px;
             position: relative;
             overflow-x: hidden;
         }
 
+        /* Фоновые цветы с оптимизацией */
         .floating-flower {
             position: fixed;
             pointer-events: none;
             z-index: 0;
             opacity: 0.15;
-            font-size: 5vmin;
+            font-size: clamp(20px, 8vw, 40px);
             animation: floatFlower 20s infinite linear;
+            will-change: transform;
         }
 
         @keyframes floatFlower {
@@ -61,15 +71,16 @@
             50% { opacity: 0.6; transform: scale(1.1); }
         }
 
+        /* Главная книга - оптимизирована для телефона */
         .book {
-            max-width: 95vmin;
+            max-width: 450px;
             width: 100%;
             background: rgba(255, 240, 245, 0.2);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border-radius: 8vmin;
-            padding: 3vmin;
-            box-shadow: 0 5vmin 8vmin rgba(139, 58, 58, 0.4), inset 0 0 4vmin rgba(255, 215, 0, 0.3), 0 0 0 0.5vmin rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 40px;
+            padding: 16px;
+            box-shadow: 0 20px 40px rgba(139, 58, 58, 0.4), inset 0 0 20px rgba(255, 215, 0, 0.3), 0 0 0 2px rgba(255, 255, 255, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.5);
             position: relative;
             z-index: 10;
@@ -78,43 +89,33 @@
         .book::before {
             content: '🌷';
             position: absolute;
-            top: -2vmin;
+            top: -12px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 6vmin;
-            filter: drop-shadow(0 1vmin 1.5vmin rgba(255, 215, 0, 0.5));
+            font-size: 32px;
+            filter: drop-shadow(0 5px 10px rgba(255, 215, 0, 0.5));
             animation: ribbonWave 3s infinite;
-        }
-
-        @keyframes ribbonWave {
-            0%, 100% { transform: translateX(-50%) rotate(-5deg); }
-            50% { transform: translateX(-50%) rotate(5deg); }
         }
 
         .book::after {
             content: '🌸';
             position: absolute;
-            bottom: -2vmin;
-            right: 4vmin;
-            font-size: 5vmin;
+            bottom: -12px;
+            right: 20px;
+            font-size: 28px;
             opacity: 0.6;
             animation: flowerSpin 10s infinite linear;
-        }
-
-        @keyframes flowerSpin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
         }
 
         .cover {
             background: rgba(255, 240, 245, 0.4);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            border-radius: 6vmin;
-            padding: 5vmin;
+            border-radius: 32px;
+            padding: 24px 16px;
             text-align: center;
-            border: 0.5vmin solid rgba(255, 215, 0, 0.4);
-            box-shadow: 0 3vmin 4vmin rgba(0, 0, 0, 0.2);
+            border: 2px solid rgba(255, 215, 0, 0.4);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
         }
@@ -130,56 +131,41 @@
             animation: rotate 20s linear infinite;
         }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
         .cover h1 {
-            font-size: clamp(5rem, 12vw, 8rem);
+            font-size: clamp(36px, 12vw, 52px);
             color: #FFD700;
-            text-shadow: 0.2rem 0.2rem 0 #8B3A3A, 0.4rem 0.4rem 0 #6B2A2A, 0 1rem 2rem rgba(255, 215, 0, 0.5);
-            margin-bottom: 2vmin;
+            text-shadow: 2px 2px 0 #8B3A3A, 4px 4px 0 #6B2A2A, 0 10px 20px rgba(255, 215, 0, 0.5);
+            margin-bottom: 12px;
             font-family: 'Playfair Display', serif;
             font-weight: 800;
-            letter-spacing: 0.2rem;
+            letter-spacing: 1px;
             position: relative;
             animation: titleGlow 3s infinite;
         }
 
-        @keyframes titleGlow {
-            0%, 100% { text-shadow: 0.2rem 0.2rem 0 #8B3A3A, 0.4rem 0.4rem 0 #6B2A2A, 0 1rem 2rem #FFD700; }
-            50% { text-shadow: 0.2rem 0.2rem 0 #8B3A3A, 0.4rem 0.4rem 0 #6B2A2A, 0 2rem 4rem #FFA500; }
-        }
-
         .cover-emoji {
-            font-size: clamp(6rem, 18vw, 10rem);
-            margin: 2vmin 0;
-            filter: drop-shadow(0 1.5vmin 2.5vmin #FFD700);
+            font-size: clamp(48px, 18vw, 72px);
+            margin: 12px 0;
+            filter: drop-shadow(0 10px 20px #FFD700);
             animation: emojiDance 4s infinite;
-        }
-
-        @keyframes emojiDance {
-            0%, 100% { transform: rotate(-5deg) scale(1); }
-            50% { transform: rotate(5deg) scale(1.1); }
         }
 
         .cover-text {
             background: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border-radius: 5vmin;
-            padding: 3vmin;
-            margin: 3vmin 0;
-            border: 0.3vmin solid rgba(255, 215, 0, 0.4);
+            border-radius: 28px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid rgba(255, 215, 0, 0.4);
         }
 
         .cover-text p {
-            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            font-size: clamp(16px, 5vw, 22px);
             color: #FFFAF0;
-            margin: 1.5vmin 0;
+            margin: 8px 0;
             font-weight: 500;
-            text-shadow: 0 0.3vmin 0.8vmin #8B3A3A;
+            text-shadow: 0 2px 5px #8B3A3A;
             font-family: 'Playfair Display', serif;
         }
 
@@ -187,26 +173,24 @@
             background: rgba(255, 215, 0, 0.3);
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
-            border: 0.5vmin solid #FFD700;
-            padding: 2.5vmin 5vmin;
-            font-size: clamp(2rem, 6vw, 3.2rem);
-            border-radius: 8vmin;
+            border: 2px solid #FFD700;
+            padding: 16px 32px;
+            font-size: clamp(18px, 6vw, 24px);
+            border-radius: 50px;
             color: #FFFAF0;
             font-weight: 700;
             cursor: pointer;
-            box-shadow: 0 1.5vmin 2.5vmin rgba(139, 58, 58, 0.4);
-            transition: 0.2s;
-            margin-top: 3vmin;
+            box-shadow: 0 8px 15px rgba(139, 58, 58, 0.4);
+            transition: transform 0.2s;
+            margin-top: 16px;
             width: 100%;
-            max-width: 70%;
+            max-width: 280px;
             font-family: 'Playfair Display', serif;
-            letter-spacing: 0.1rem;
-            position: relative;
-            overflow: hidden;
+            letter-spacing: 0.5px;
         }
 
         .open-btn:active {
-            transform: scale(0.97);
+            transform: scale(0.96);
             background: rgba(255, 215, 0, 0.5);
         }
 
@@ -218,59 +202,59 @@
             background: rgba(139, 58, 58, 0.2);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            border-radius: 5vmin;
-            padding: 2vmin 3vmin;
-            margin-bottom: 2.5vmin;
-            border: 0.3vmin solid rgba(255, 215, 0, 0.3);
+            border-radius: 30px;
+            padding: 12px;
+            margin-bottom: 16px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
         }
 
         .page-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.5vmin;
+            margin-bottom: 8px;
         }
 
         .page-num {
             background: rgba(255, 215, 0, 0.2);
-            padding: 1.2vmin 3.5vmin;
-            border-radius: 5vmin;
-            font-size: 2rem;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 16px;
             font-weight: 600;
             color: #FFD700;
-            border: 0.2vmin solid rgba(255, 215, 0, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.5);
         }
 
         .march8-badge {
             background: rgba(255, 215, 0, 0.3);
-            padding: 1.2vmin 3vmin;
-            border-radius: 5vmin;
-            font-size: 2rem;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 16px;
             color: #FFD700;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 1vmin;
+            gap: 4px;
         }
 
         .progress-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.5vmin;
+            gap: 6px;
             justify-content: center;
         }
 
         .progress-item {
             background: rgba(139, 58, 58, 0.3);
-            padding: 1vmin 2.5vmin;
-            border-radius: 4vmin;
-            font-size: 1.8rem;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
             color: #FFFAF0;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 0.8vmin;
-            border: 0.2vmin solid rgba(255, 215, 0, 0.3);
+            gap: 4px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
         }
@@ -281,72 +265,74 @@
             background: rgba(139, 58, 58, 0.15);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            border-radius: 6vmin;
-            padding: 2.5vmin;
-            border: 0.3vmin solid rgba(255, 215, 0, 0.3);
+            border-radius: 32px;
+            padding: 16px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
         }
 
         .slides {
             display: flex;
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            touch-action: pan-y pinch-zoom;
         }
 
         .slide {
             flex: 0 0 100%;
-            padding: 2.5vmin;
+            padding: 16px;
             background: rgba(255, 250, 240, 0.15);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border-radius: 5vmin;
-            border: 0.3vmin solid rgba(255, 215, 0, 0.3);
+            border-radius: 28px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
         }
 
         .slide h2 {
-            font-size: clamp(2.2rem, 6vw, 3.5rem);
+            font-size: clamp(20px, 6vw, 28px);
             color: #FFD700;
             text-align: center;
-            margin-bottom: 2.5vmin;
+            margin-bottom: 16px;
             display: flex;
             justify-content: center;
-            gap: 2vmin;
-            text-shadow: 0 0.3vmin 0.8vmin #8B3A3A;
+            gap: 10px;
+            text-shadow: 0 2px 5px #8B3A3A;
             font-family: 'Playfair Display', serif;
             font-weight: 700;
+            flex-wrap: wrap;
         }
 
         .game-area {
-            min-height: 45vmin;
+            min-height: 260px;
             display: flex;
             justify-content: center;
             align-items: center;
             background: rgba(0, 0, 0, 0.1);
-            border-radius: 5vmin;
-            padding: 2vmin;
-            border: 0.3vmin solid rgba(255, 215, 0, 0.2);
+            border-radius: 24px;
+            padding: 12px;
+            border: 2px solid rgba(255, 215, 0, 0.2);
         }
 
         .game-hint {
             text-align: center;
             color: #FFFAF0;
-            font-size: 1.8rem;
-            margin-top: 2vmin;
+            font-size: 14px;
+            margin-top: 12px;
             background: rgba(139, 58, 58, 0.3);
-            padding: 1.5vmin;
-            border-radius: 4vmin;
+            padding: 8px;
+            border-radius: 20px;
             font-style: italic;
-            border: 0.2vmin solid rgba(255, 215, 0, 0.3);
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
         /* ИГРА 1: Тюльпаны */
         #game1 {
             width: 100%;
-            max-width: 65vmin;
+            max-width: 400px;
             height: auto;
-            aspect-ratio: 500/300;
-            border-radius: 4vmin;
-            border: 0.5vmin solid #FFD700;
+            aspect-ratio: 400/240;
+            border-radius: 20px;
+            border: 2px solid #FFD700;
             background: rgba(255, 250, 240, 0.2);
-            box-shadow: 0 1.5vmin 2.5vmin rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
             touch-action: none;
         }
 
@@ -354,42 +340,37 @@
         .grid-5x5 {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 1.5vmin;
+            gap: 6px;
             width: 100%;
-            max-width: 55vmin;
+            max-width: 320px;
         }
 
         .card {
             aspect-ratio: 1;
             background: rgba(255, 215, 0, 0.2);
-            border: 0.3vmin solid #FFD700;
-            border-radius: 2.5vmin;
+            border: 2px solid #FFD700;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            box-shadow: 0 0.6vmin 0 #8B3A3A;
+            font-size: clamp(18px, 6vw, 24px);
+            box-shadow: 0 4px 0 #8B3A3A;
             cursor: pointer;
-            transition: 0.1s;
+            transition: transform 0.1s, box-shadow 0.1s;
             color: #FFFAF0;
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
         }
 
         .card:active {
-            transform: translateY(0.4vmin);
-            box-shadow: 0 0.2vmin 0 #8B3A3A;
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 #8B3A3A;
         }
 
         .card.opened {
             background: rgba(255, 215, 0, 0.4);
-            box-shadow: 0 0 3vmin #FFD700;
+            box-shadow: 0 0 15px #FFD700;
             animation: cardGlow 1s infinite;
-        }
-
-        @keyframes cardGlow {
-            0%, 100% { box-shadow: 0 0 3vmin #FFD700; }
-            50% { box-shadow: 0 0 5vmin #FFA500; }
         }
 
         .card.mistake {
@@ -397,65 +378,61 @@
             animation: shake 0.2s;
         }
 
-        @keyframes shake {
-            0%,100% { transform: translateX(0); }
-            25% { transform: translateX(-0.8vmin); }
-            75% { transform: translateX(0.8vmin); }
-        }
-
+        /* ИГРА 3: Конверты */
         .click-area {
             width: 100%;
-            max-width: 55vmin;
-            height: 35vmin;
+            max-width: 320px;
+            height: 220px;
             background: rgba(255, 215, 0, 0.1);
-            border-radius: 4vmin;
-            border: 0.5vmin dashed #FFD700;
+            border-radius: 20px;
+            border: 2px dashed #FFD700;
             position: relative;
             overflow: hidden;
         }
 
         .target {
             position: absolute;
-            font-size: 7vmin;
+            font-size: 48px;
             cursor: pointer;
-            filter: drop-shadow(0 0.8vmin 1.5vmin #FFD700);
+            filter: drop-shadow(0 4px 8px #FFD700);
             animation: targetFloat 2s infinite;
+            will-change: transform;
+            touch-action: none;
         }
 
-        @keyframes targetFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-0.8vmin) rotate(5deg); }
-        }
-
+        /* ИГРА 4: Змейка */
         #game4 {
             width: 100%;
-            max-width: 65vmin;
+            max-width: 400px;
             height: auto;
-            aspect-ratio: 500/300;
-            border-radius: 4vmin;
-            border: 0.5vmin solid #FFD700;
+            aspect-ratio: 400/240;
+            border-radius: 20px;
+            border: 2px solid #FFD700;
             background: #2c1a0b;
         }
 
         .controls {
             display: flex;
-            gap: 2vmin;
-            margin-top: 2vmin;
+            gap: 12px;
+            margin-top: 12px;
             justify-content: center;
         }
 
         .ctrl-btn {
             background: rgba(255, 215, 0, 0.2);
-            border: 0.3vmin solid #FFD700;
-            width: 9vmin;
-            height: 9vmin;
-            border-radius: 5vmin;
-            font-size: 4vmin;
+            border: 2px solid #FFD700;
+            width: 55px;
+            height: 55px;
+            border-radius: 30px;
+            font-size: 28px;
             color: #FFD700;
             cursor: pointer;
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
-            transition: 0.1s;
+            transition: transform 0.1s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .ctrl-btn:active {
@@ -463,100 +440,90 @@
             background: rgba(255, 215, 0, 0.4);
         }
 
+        /* ИГРА 5: Мемори */
         .memory-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1.5vmin;
+            gap: 8px;
             width: 100%;
-            max-width: 55vmin;
+            max-width: 320px;
         }
 
         .m-card {
             aspect-ratio: 1;
             background: rgba(255, 215, 0, 0.2);
-            border: 0.3vmin solid #FFD700;
-            border-radius: 3vmin;
+            border: 2px solid #FFD700;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4.5vmin;
-            box-shadow: 0 0.6vmin 0 #8B3A3A;
+            font-size: clamp(24px, 7vw, 32px);
+            box-shadow: 0 4px 0 #8B3A3A;
             cursor: pointer;
             color: #FFFAF0;
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
             animation: cardFloat 3s infinite;
-        }
-
-        .m-card:nth-child(2) { animation-delay: 0.2s; }
-        .m-card:nth-child(3) { animation-delay: 0.4s; }
-        .m-card:nth-child(4) { animation-delay: 0.6s; }
-
-        @keyframes cardFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-0.4vmin); }
+            will-change: transform;
         }
 
         .m-card:active {
-            transform: translateY(0.4vmin);
-            box-shadow: 0 0.2vmin 0 #8B3A3A;
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 #8B3A3A;
         }
 
         .m-card.flipped {
             background: rgba(255, 215, 0, 0.4);
-            box-shadow: 0 0 4vmin #FFD700;
+            box-shadow: 0 0 20px #FFD700;
             animation: flippedPulse 1s infinite;
         }
 
-        @keyframes flippedPulse {
-            0%, 100% { box-shadow: 0 0 4vmin #FFD700; }
-            50% { box-shadow: 0 0 6vmin #FFA500; }
-        }
-
+        /* ИГРА 6: Ноты */
         .notes-area {
             width: 100%;
-            max-width: 55vmin;
-            height: 35vmin;
+            max-width: 320px;
+            height: 220px;
             background: rgba(255, 215, 0, 0.1);
-            border-radius: 4vmin;
-            border: 0.5vmin dashed #FFD700;
+            border-radius: 20px;
+            border: 2px dashed #FFD700;
             position: relative;
             overflow: hidden;
         }
 
         .note {
             position: absolute;
-            font-size: 7vmin;
+            font-size: 48px;
             cursor: pointer;
-            filter: drop-shadow(0 0.8vmin 1.5vmin #FFD700);
+            filter: drop-shadow(0 4px 8px #FFD700);
             animation: noteSpin 2s infinite;
+            will-change: transform;
+            touch-action: none;
         }
 
-        @keyframes noteSpin {
-            0%, 100% { transform: rotate(0deg); }
-            50% { transform: rotate(10deg); }
-        }
-
+        /* Навигация */
         .nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 3vmin;
-            gap: 2vmin;
+            margin-top: 16px;
+            gap: 10px;
         }
 
         .nav-btn {
             background: rgba(255, 215, 0, 0.2);
-            border: 0.4vmin solid #FFD700;
-            width: 10vmin;
-            height: 10vmin;
-            border-radius: 6vmin;
-            font-size: 5vmin;
+            border: 2px solid #FFD700;
+            width: 60px;
+            height: 60px;
+            border-radius: 35px;
+            font-size: 32px;
             color: #FFD700;
             cursor: pointer;
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
-            transition: 0.1s;
+            transition: transform 0.1s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .nav-btn:active {
@@ -568,21 +535,22 @@
             background: rgba(139, 58, 58, 0.3);
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
-            padding: 1.5vmin 4vmin;
-            border-radius: 5vmin;
-            font-size: 2.2rem;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 18px;
             color: #FFD700;
-            border: 0.2vmin solid rgba(255, 215, 0, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.5);
         }
 
+        /* Прогресс */
         .progress-bar {
             width: 100%;
-            height: 2.5vmin;
+            height: 12px;
             background: rgba(139, 58, 58, 0.3);
-            border-radius: 3vmin;
-            margin-top: 2.5vmin;
+            border-radius: 20px;
+            margin-top: 16px;
             overflow: hidden;
-            border: 0.3vmin solid rgba(255, 215, 0, 0.4);
+            border: 2px solid rgba(255, 215, 0, 0.4);
             position: relative;
         }
 
@@ -595,24 +563,20 @@
             animation: progressMove 2s linear infinite;
         }
 
-        @keyframes progressMove {
-            from { background-position: 0 0; }
-            to { background-position: 200% 0; }
-        }
-
         .progress-label {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             color: #8B3A3A;
-            font-size: 1.5rem;
+            font-size: 10px;
             font-weight: bold;
-            background: rgba(255, 250, 240, 0.8);
-            padding: 0.3vmin 2vmin;
-            border-radius: 3vmin;
+            background: rgba(255, 250, 240, 0.9);
+            padding: 2px 8px;
+            border-radius: 12px;
         }
 
+        /* Финал */
         .final-content {
             width: 100%;
             display: flex;
@@ -621,20 +585,15 @@
         }
 
         .main-photo {
-            width: 35vmin;
-            height: 35vmin;
+            width: 180px;
+            height: 180px;
             background: rgba(255, 215, 0, 0.15);
-            border-radius: 6vmin;
-            border: 0.6vmin solid #FFD700;
+            border-radius: 30px;
+            border: 3px solid #FFD700;
             overflow: hidden;
-            margin: 2vmin auto;
-            box-shadow: 0 2vmin 4vmin rgba(0, 0, 0, 0.3);
+            margin: 12px auto;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             animation: photoFloat 3s infinite;
-        }
-
-        @keyframes photoFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-0.8vmin); }
         }
 
         .main-preview, .main-placeholder {
@@ -643,38 +602,31 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 10vmin;
+            font-size: 60px;
             background: linear-gradient(145deg, rgba(255, 215, 0, 0.2), rgba(139, 58, 58, 0.2));
             object-fit: cover;
         }
 
         .photo-row {
             display: flex;
-            gap: 2vmin;
+            gap: 12px;
             justify-content: center;
-            margin: 3vmin 0;
+            margin: 16px 0;
             flex-wrap: wrap;
         }
 
         .photo-frame {
-            width: 16vmin;
-            height: 16vmin;
+            width: 90px;
+            height: 90px;
             background: rgba(255, 215, 0, 0.15);
-            border-radius: 4vmin;
-            border: 0.5vmin solid #FFD700;
+            border-radius: 20px;
+            border: 3px solid #FFD700;
             overflow: hidden;
             position: relative;
             cursor: pointer;
-            box-shadow: 0 1.5vmin 2.5vmin rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
             animation: frameFloat 3s infinite;
-        }
-
-        .photo-frame:nth-child(2) { animation-delay: 0.2s; }
-        .photo-frame:nth-child(3) { animation-delay: 0.4s; }
-
-        @keyframes frameFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-0.6vmin); }
+            will-change: transform;
         }
 
         .photo-preview {
@@ -684,69 +636,60 @@
             display: block;
         }
 
-        .photo-placeholder {
-            display: none;
-        }
-
         .letter {
             background: rgba(139, 58, 58, 0.2);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            border-radius: 6vmin;
-            padding: 3.5vmin;
-            margin: 3vmin 0;
-            border: 0.4vmin solid #FFD700;
+            border-radius: 30px;
+            padding: 20px;
+            margin: 16px 0;
+            border: 2px solid #FFD700;
             width: 100%;
             animation: letterGlow 2s infinite;
         }
 
-        @keyframes letterGlow {
-            0%, 100% { box-shadow: 0 0.8vmin 2.5vmin rgba(255, 215, 0, 0.3); }
-            50% { box-shadow: 0 1.5vmin 4vmin rgba(255, 215, 0, 0.6); }
-        }
-
         .letter h3 {
-            font-size: 4vmin;
+            font-size: 28px;
             color: #FFD700;
-            margin-bottom: 2vmin;
+            margin-bottom: 12px;
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             text-align: center;
         }
 
         .letter p {
-            font-size: 2.2vmin;
+            font-size: 16px;
             color: #FFFAF0;
-            margin: 1.5vmin 0;
-            line-height: 1.6;
+            margin: 10px 0;
+            line-height: 1.5;
             text-align: center;
         }
 
         .signature {
-            font-size: 3.8vmin;
+            font-size: 26px;
             color: #FFD700;
             font-family: 'Dancing Script', cursive;
-            border-top: 0.2vmin dashed rgba(255, 215, 0, 0.5);
-            padding-top: 2vmin;
-            margin-top: 2vmin;
+            border-top: 1px dashed rgba(255, 215, 0, 0.5);
+            padding-top: 12px;
+            margin-top: 12px;
             text-align: center;
         }
 
         .restart {
             background: rgba(255, 215, 0, 0.2);
-            border: 0.5vmin solid #FFD700;
-            padding: 2vmin 6vmin;
-            font-size: 2.5rem;
-            border-radius: 8vmin;
+            border: 2px solid #FFD700;
+            padding: 14px 32px;
+            font-size: 18px;
+            border-radius: 40px;
             color: #FFD700;
             font-weight: 700;
             cursor: pointer;
-            margin-top: 2.5vmin;
+            margin-top: 16px;
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
-            transition: 0.2s;
+            transition: transform 0.2s;
             width: 100%;
-            max-width: 50%;
+            max-width: 240px;
             font-family: 'Playfair Display', serif;
         }
 
@@ -756,26 +699,120 @@
         }
 
         .march8-title {
-            font-size: 3.5vmin;
+            font-size: 24px;
             color: #FFD700;
             text-align: center;
-            margin-bottom: 1.5vmin;
+            margin-bottom: 8px;
             font-family: 'Dancing Script', cursive;
             animation: titleWave 2s infinite;
+        }
+
+        /* Анимации */
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes ribbonWave {
+            0%, 100% { transform: translateX(-50%) rotate(-5deg); }
+            50% { transform: translateX(-50%) rotate(5deg); }
+        }
+
+        @keyframes flowerSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { text-shadow: 2px 2px 0 #8B3A3A, 4px 4px 0 #6B2A2A, 0 10px 20px #FFD700; }
+            50% { text-shadow: 2px 2px 0 #8B3A3A, 4px 4px 0 #6B2A2A, 0 20px 40px #FFA500; }
+        }
+
+        @keyframes emojiDance {
+            0%, 100% { transform: rotate(-5deg) scale(1); }
+            50% { transform: rotate(5deg) scale(1.1); }
+        }
+
+        @keyframes cardGlow {
+            0%, 100% { box-shadow: 0 0 15px #FFD700; }
+            50% { box-shadow: 0 0 25px #FFA500; }
+        }
+
+        @keyframes shake {
+            0%,100% { transform: translateX(0); }
+            25% { transform: translateX(-4px); }
+            75% { transform: translateX(4px); }
+        }
+
+        @keyframes targetFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-4px) rotate(5deg); }
+        }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        @keyframes flippedPulse {
+            0%, 100% { box-shadow: 0 0 20px #FFD700; }
+            50% { box-shadow: 0 0 30px #FFA500; }
+        }
+
+        @keyframes noteSpin {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(10deg); }
+        }
+
+        @keyframes progressMove {
+            from { background-position: 0 0; }
+            to { background-position: 200% 0; }
+        }
+
+        @keyframes photoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        @keyframes frameFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        @keyframes letterGlow {
+            0%, 100% { box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3); }
+            50% { box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6); }
         }
 
         @keyframes titleWave {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
         }
+
+        /* Оптимизация для маленьких экранов */
+        @media (max-width: 380px) {
+            .book { padding: 12px; }
+            .cover { padding: 20px 12px; }
+            .cover h1 { font-size: 32px; }
+            .cover-emoji { font-size: 48px; }
+            .progress-item { font-size: 12px; padding: 4px 8px; }
+            .page-num { font-size: 14px; padding: 6px 15px; }
+            .march8-badge { font-size: 14px; padding: 6px 12px; }
+            .game-area { min-height: 220px; }
+            .main-photo { width: 150px; height: 150px; }
+            .photo-frame { width: 75px; height: 75px; }
+            .letter h3 { font-size: 24px; }
+            .letter p { font-size: 14px; }
+            .signature { font-size: 22px; }
+            .restart { font-size: 16px; padding: 12px 24px; }
+        }
     </style>
 </head>
 <body>
-    <!-- Фоновые цветы -->
+    <!-- Фоновые цветы (меньше для производительности) -->
     <div class="floating-flower" style="left: 5%; animation-duration: 15s;">🌷</div>
-    <div class="floating-flower" style="left: 25%; animation-duration: 18s;">🌸</div>
-    <div class="floating-flower" style="left: 45%; animation-duration: 20s;">🌹</div>
-    <div class="floating-flower" style="left: 65%; animation-duration: 16s;">🌺</div>
+    <div class="floating-flower" style="left: 30%; animation-duration: 18s;">🌸</div>
+    <div class="floating-flower" style="left: 60%; animation-duration: 20s;">🌹</div>
     <div class="floating-flower" style="left: 85%; animation-duration: 22s;">🌼</div>
     <div class="sun-rays"></div>
 
@@ -819,14 +856,14 @@
                     <div class="slide">
                         <h2><span>🌷</span> Весенние цветы <span>🌷</span></h2>
                         <div class="game-area">
-                            <canvas id="game1" width="500" height="300"></canvas>
+                            <canvas id="game1" width="400" height="240"></canvas>
                         </div>
-                        <div class="game-hint">Собирай тюльпаны 🌷, кактусы не трогай</div>
+                        <div class="game-hint">Собирай тюльпаны 🌷</div>
                     </div>
 
                     <!-- Страница 2 -->
                     <div class="slide">
-                        <h2><span>❤️</span> Сердечки с цветами <span>❤️</span></h2>
+                        <h2><span>❤️</span> Сердечки <span>❤️</span></h2>
                         <div class="game-area">
                             <div id="game2" class="grid-5x5"></div>
                         </div>
@@ -835,7 +872,7 @@
 
                     <!-- Страница 3 -->
                     <div class="slide">
-                        <h2><span>💐</span> Букет признаний <span>💐</span></h2>
+                        <h2><span>💐</span> Букеты <span>💐</span></h2>
                         <div class="game-area">
                             <div id="game3" class="click-area"></div>
                         </div>
@@ -846,7 +883,7 @@
                     <div class="slide">
                         <h2><span>🍎</span> Цветущий сад <span>🍎</span></h2>
                         <div class="game-area" style="flex-direction: column;">
-                            <canvas id="game4" width="500" height="300"></canvas>
+                            <canvas id="game4" width="400" height="240"></canvas>
                             <div class="controls">
                                 <button class="ctrl-btn" onclick="snakeDir('up')">↑</button>
                                 <button class="ctrl-btn" onclick="snakeDir('left')">←</button>
@@ -854,7 +891,7 @@
                                 <button class="ctrl-btn" onclick="snakeDir('right')">→</button>
                             </div>
                         </div>
-                        <div class="game-hint">Собери яблочки в саду</div>
+                        <div class="game-hint">Собери яблочки 🍎</div>
                     </div>
 
                     <!-- Страница 5 -->
@@ -863,7 +900,7 @@
                         <div class="game-area">
                             <div id="game5" class="memory-grid"></div>
                         </div>
-                        <div class="game-hint">Найди 4 пары цветов</div>
+                        <div class="game-hint">Найди 4 пары</div>
                     </div>
 
                     <!-- Страница 6 -->
@@ -872,29 +909,29 @@
                         <div class="game-area">
                             <div id="game6" class="notes-area"></div>
                         </div>
-                        <div class="game-hint">Собери весенние ноты</div>
+                        <div class="game-hint">Собери ноты 🎵</div>
                     </div>
 
-                    <!-- Страница 7: Финал с ТВОИМИ ФОТО -->
+                    <!-- Страница 7: Финал с твоими фото -->
                     <div class="slide">
                         <h2><span>💐</span> С 8 Марта! <span>💐</span></h2>
                         <div class="game-area">
                             <div class="final-content">
-                                <!-- Главное фото (первое фото будет главным) -->
+                                <!-- Главное фото -->
                                 <div class="main-photo">
                                     <img class="main-preview" src="https://ru.cdn.pixsafe.online/albums/EGEvK/6716d3b3-1413-4423-a599-67f230423d25_RLRQ4.jpg" style="display:block; width:100%; height:100%; object-fit:cover;">
                                 </div>
 
-                                <!-- Три рамки с твоими фото -->
+                                <!-- Три рамки с фото -->
                                 <div class="photo-row">
-                                    <div class="photo-frame" id="frame1">
-                                        <img src="https://ru.cdn.pixsafe.online/albums/EGEvK/6716d3b3-1413-4423-a599-67f230423d25_RLRQ4.jpg" class="photo-preview" style="display:block;">
+                                    <div class="photo-frame">
+                                        <img src="https://ru.cdn.pixsafe.online/albums/EGEvK/6716d3b3-1413-4423-a599-67f230423d25_RLRQ4.jpg" class="photo-preview">
                                     </div>
-                                    <div class="photo-frame" id="frame2">
-                                        <img src="https://ru.cdn.pixsafe.online/albums/hsLyD/e0c819aa-92bd-4541-b18b-efc0330eb981_K9QbT.jpg" class="photo-preview" style="display:block;">
+                                    <div class="photo-frame">
+                                        <img src="https://ru.cdn.pixsafe.online/albums/hsLyD/e0c819aa-92bd-4541-b18b-efc0330eb981_K9QbT.jpg" class="photo-preview">
                                     </div>
-                                    <div class="photo-frame" id="frame3">
-                                        <img src="https://ru.cdn.pixsafe.online/albums/xBTMR/1285d807-26dd-4cd0-ac60-3eef89e0c8d0_27kRV.jpg" class="photo-preview" style="display:block;">
+                                    <div class="photo-frame">
+                                        <img src="https://ru.cdn.pixsafe.online/albums/xBTMR/1285d807-26dd-4cd0-ac60-3eef89e0c8d0_27kRV.jpg" class="photo-preview">
                                     </div>
                                 </div>
 
@@ -935,7 +972,7 @@
         const max = { g1:3, g2:8, g3:3, g4:5, g5:4, g6:4 };
         let completed = { g1:false, g2:false, g3:false, g4:false, g5:false, g6:false };
 
-        // Весенние тексты к 8 Марта
+        // Весенние тексты
         const loveTexts = [
             { title:"Самая красивая", text:"Твоя красота расцветает как весенние тюльпаны. Ты прекрасна в этот день!" },
             { title:"Моё сердце", text:"Твоё сердце бьётся в ритме весны. С тобой каждый день как праздник." },
@@ -1018,13 +1055,12 @@
 
         function startGame1() {
             if (completed.g1) return;
-
             if (game1Interval) clearInterval(game1Interval);
 
             setInterval(() => {
                 if (completed.g1 || collected.g1 >= max.g1) return;
                 game1Items.push({
-                    x: Math.random() * (canvas1.width - 60) + 30,
+                    x: Math.random() * (canvas1.width - 50) + 25,
                     y: 0,
                     type: Math.random() > 0.3 ? 'flower' : 'cactus',
                     speed: 1 + Math.random() * 2
@@ -1043,7 +1079,7 @@
                 }
 
                 game1Items.forEach(item => {
-                    ctx1.font = '40px Arial';
+                    ctx1.font = '32px Arial';
                     ctx1.shadowColor = '#FFD700';
                     ctx1.shadowBlur = 10;
                     ctx1.fillText(item.type === 'flower' ? '🌷' : '🌵', item.x, item.y);
@@ -1076,7 +1112,7 @@
 
             for (let i = game1Items.length - 1; i >= 0; i--) {
                 const item = game1Items[i];
-                if (Math.hypot(x - item.x, y - item.y) < 25) {
+                if (Math.hypot(x - item.x, y - item.y) < 20) {
                     if (item.type === 'flower') {
                         collected.g1++;
                         if (collected.g1 >= max.g1) completed.g1 = true;
@@ -1177,8 +1213,8 @@
             const item = document.createElement('div');
             item.className = 'target';
             item.textContent = types[Math.floor(Math.random() * types.length)];
-            item.style.left = Math.random() * (area.clientWidth - 60) + 'px';
-            item.style.top = Math.random() * (area.clientHeight - 60) + 'px';
+            item.style.left = Math.random() * (area.clientWidth - 50) + 'px';
+            item.style.top = Math.random() * (area.clientHeight - 50) + 'px';
 
             item.onclick = () => {
                 if (completed.g3 || collected.g3 >= max.g3) return;
@@ -1187,7 +1223,7 @@
                 if (collected.g3 >= max.g3) {
                     completed.g3 = true;
                     game3Active = false;
-                    area.innerHTML = '<div style="color:#FFD700; text-align:center; padding:50px;">🌷 Букет собран!</div>';
+                    area.innerHTML = '<div style="color:#FFD700; text-align:center; padding:40px;">🌷 Букет собран!</div>';
                 }
                 updateProgress();
                 item.remove();
@@ -1225,7 +1261,7 @@
         }
 
         function resetSnake() {
-            snake = [{x: 10, y: 6}];
+            snake = [{x: 8, y: 5}];
             snakeDirCurrent = 'right';
             snakeActive = true;
             snakeDead = false;
@@ -1237,8 +1273,8 @@
         function placeFood() {
             do {
                 snakeFood = {
-                    x: Math.floor(Math.random() * 18),
-                    y: Math.floor(Math.random() * 12)
+                    x: Math.floor(Math.random() * 16),
+                    y: Math.floor(Math.random() * 10)
                 };
             } while (snake.some(s => s.x === snakeFood.x && s.y === snakeFood.y));
         }
@@ -1253,7 +1289,7 @@
             else if (snakeDirCurrent === 'up') head.y--;
             else if (snakeDirCurrent === 'down') head.y++;
 
-            if (head.x < 0 || head.x >= 18 || head.y < 0 || head.y >= 12) {
+            if (head.x < 0 || head.x >= 16 || head.y < 0 || head.y >= 10) {
                 snakeDead = true;
                 setTimeout(() => {
                     if (!completed.g4) resetSnake();
@@ -1298,19 +1334,19 @@
                 ctx4.fillStyle = i === 0 ? '#FFD700' : '#FFA500';
                 ctx4.shadowColor = '#FFD700';
                 ctx4.shadowBlur = 10;
-                ctx4.fillRect(seg.x * 25 + 2, seg.y * 25 + 2, 21, 21);
+                ctx4.fillRect(seg.x * 25 + 2, seg.y * 24 + 2, 21, 20);
             });
 
             ctx4.shadowBlur = 15;
-            ctx4.font = '25px Arial';
+            ctx4.font = '24px Arial';
             ctx4.fillStyle = 'white';
-            ctx4.fillText('🍎', snakeFood.x * 25 + 4, snakeFood.y * 25 + 20);
+            ctx4.fillText('🍎', snakeFood.x * 25 + 4, snakeFood.y * 24 + 20);
 
             if (snakeDead) {
                 ctx4.fillStyle = 'rgba(0,0,0,0.5)';
                 ctx4.fillRect(0, 0, canvas4.width, canvas4.height);
                 ctx4.fillStyle = '#FFD700';
-                ctx4.font = '22px "Playfair Display"';
+                ctx4.font = '20px "Playfair Display"';
                 ctx4.textAlign = 'center';
                 ctx4.fillText('🌷 Попробуй ещё', canvas4.width/2, canvas4.height/2);
             }
@@ -1319,7 +1355,7 @@
                 ctx4.fillStyle = 'rgba(255,215,0,0.3)';
                 ctx4.fillRect(0, 0, canvas4.width, canvas4.height);
                 ctx4.fillStyle = '#FFD700';
-                ctx4.font = '26px "Playfair Display"';
+                ctx4.font = '22px "Playfair Display"';
                 ctx4.textAlign = 'center';
                 ctx4.fillText('🌸 Ура!', canvas4.width/2, canvas4.height/2);
             }
@@ -1429,8 +1465,8 @@
             const note = document.createElement('div');
             note.className = 'note';
             note.textContent = '🎵';
-            note.style.left = Math.random() * (area.clientWidth - 60) + 'px';
-            note.style.top = Math.random() * (area.clientHeight - 60) + 'px';
+            note.style.left = Math.random() * (area.clientWidth - 50) + 'px';
+            note.style.top = Math.random() * (area.clientHeight - 50) + 'px';
 
             note.onclick = () => {
                 if (completed.g6 || collected.g6 >= max.g6) return;
@@ -1439,7 +1475,7 @@
                 if (collected.g6 >= max.g6) {
                     completed.g6 = true;
                     game6Active = false;
-                    area.innerHTML = '<div style="color:#FFD700; text-align:center; padding:50px;">🎵 Весенняя музыка</div>';
+                    area.innerHTML = '<div style="color:#FFD700; text-align:center; padding:40px;">🎵 Весенняя музыка</div>';
                 }
                 updateProgress();
                 note.remove();
@@ -1468,15 +1504,12 @@
             updateProgress();
         }
 
-        // Управление с клавиатуры для змейки (оставлено для компьютера, на телефоне не мешает)
-        document.addEventListener('keydown', (e) => {
-            if (currentPage === 3) {
-                if (e.key === 'ArrowUp') { snakeDir('up'); e.preventDefault(); }
-                else if (e.key === 'ArrowDown') { snakeDir('down'); e.preventDefault(); }
-                else if (e.key === 'ArrowLeft') { snakeDir('left'); e.preventDefault(); }
-                else if (e.key === 'ArrowRight') { snakeDir('right'); e.preventDefault(); }
-            }
-        });
+        // ========== ПЕРЕЗАПУСК ==========
+        function restartBook() {
+            resetAll();
+            startGames();
+            updateProgress();
+        }
     </script>
 </body>
 </html>
