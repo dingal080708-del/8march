@@ -19,6 +19,7 @@
             user-select: none;
         }
 
+        /* Базовые стили для всех устройств */
         html {
             font-size: 16px;
         }
@@ -31,18 +32,18 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 8px;
+            padding: 12px;
             position: relative;
             overflow-x: hidden;
         }
 
-        /* Фоновые цветы с оптимизацией */
+        /* Фоновые цветы */
         .floating-flower {
             position: fixed;
             pointer-events: none;
             z-index: 0;
             opacity: 0.15;
-            font-size: clamp(20px, 8vw, 40px);
+            font-size: clamp(20px, 6vw, 40px);
             animation: floatFlower 20s infinite linear;
             will-change: transform;
         }
@@ -66,14 +67,9 @@
             animation: sunPulse 8s infinite;
         }
 
-        @keyframes sunPulse {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.1); }
-        }
-
-        /* Главная книга - оптимизирована для телефона */
+        /* Главная книга */
         .book {
-            max-width: 450px;
+            max-width: 390px; /* Идеально для iPhone 11/17 */
             width: 100%;
             background: rgba(255, 240, 245, 0.2);
             backdrop-filter: blur(20px);
@@ -107,6 +103,7 @@
             animation: flowerSpin 10s infinite linear;
         }
 
+        /* Обложка */
         .cover {
             background: rgba(255, 240, 245, 0.4);
             backdrop-filter: blur(15px);
@@ -132,7 +129,7 @@
         }
 
         .cover h1 {
-            font-size: clamp(36px, 12vw, 52px);
+            font-size: 42px;
             color: #FFD700;
             text-shadow: 2px 2px 0 #8B3A3A, 4px 4px 0 #6B2A2A, 0 10px 20px rgba(255, 215, 0, 0.5);
             margin-bottom: 12px;
@@ -144,7 +141,7 @@
         }
 
         .cover-emoji {
-            font-size: clamp(48px, 18vw, 72px);
+            font-size: 60px;
             margin: 12px 0;
             filter: drop-shadow(0 10px 20px #FFD700);
             animation: emojiDance 4s infinite;
@@ -161,7 +158,7 @@
         }
 
         .cover-text p {
-            font-size: clamp(16px, 5vw, 22px);
+            font-size: 20px;
             color: #FFFAF0;
             margin: 8px 0;
             font-weight: 500;
@@ -175,7 +172,7 @@
             -webkit-backdrop-filter: blur(5px);
             border: 2px solid #FFD700;
             padding: 16px 32px;
-            font-size: clamp(18px, 6vw, 24px);
+            font-size: 22px;
             border-radius: 50px;
             color: #FFFAF0;
             font-weight: 700;
@@ -184,7 +181,7 @@
             transition: transform 0.2s;
             margin-top: 16px;
             width: 100%;
-            max-width: 280px;
+            max-width: 260px;
             font-family: 'Playfair Display', serif;
             letter-spacing: 0.5px;
         }
@@ -198,6 +195,7 @@
             display: none;
         }
 
+        /* Верхняя панель */
         .header {
             background: rgba(139, 58, 58, 0.2);
             backdrop-filter: blur(15px);
@@ -246,7 +244,7 @@
 
         .progress-item {
             background: rgba(139, 58, 58, 0.3);
-            padding: 5px 12px;
+            padding: 6px 12px;
             border-radius: 20px;
             font-size: 14px;
             color: #FFFAF0;
@@ -259,6 +257,7 @@
             -webkit-backdrop-filter: blur(5px);
         }
 
+        /* Слайдер */
         .slider {
             width: 100%;
             overflow: hidden;
@@ -287,7 +286,7 @@
         }
 
         .slide h2 {
-            font-size: clamp(20px, 6vw, 28px);
+            font-size: 24px;
             color: #FFD700;
             text-align: center;
             margin-bottom: 16px;
@@ -326,9 +325,9 @@
         /* ИГРА 1: Тюльпаны */
         #game1 {
             width: 100%;
-            max-width: 400px;
+            max-width: 350px;
             height: auto;
-            aspect-ratio: 400/240;
+            aspect-ratio: 350/210;
             border-radius: 20px;
             border: 2px solid #FFD700;
             background: rgba(255, 250, 240, 0.2);
@@ -340,20 +339,20 @@
         .grid-5x5 {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 6px;
+            gap: 5px;
             width: 100%;
-            max-width: 320px;
+            max-width: 300px;
         }
 
         .card {
             aspect-ratio: 1;
             background: rgba(255, 215, 0, 0.2);
             border: 2px solid #FFD700;
-            border-radius: 12px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: clamp(18px, 6vw, 24px);
+            font-size: 20px;
             box-shadow: 0 4px 0 #8B3A3A;
             cursor: pointer;
             transition: transform 0.1s, box-shadow 0.1s;
@@ -381,8 +380,8 @@
         /* ИГРА 3: Конверты */
         .click-area {
             width: 100%;
-            max-width: 320px;
-            height: 220px;
+            max-width: 300px;
+            height: 200px;
             background: rgba(255, 215, 0, 0.1);
             border-radius: 20px;
             border: 2px dashed #FFD700;
@@ -392,7 +391,7 @@
 
         .target {
             position: absolute;
-            font-size: 48px;
+            font-size: 42px;
             cursor: pointer;
             filter: drop-shadow(0 4px 8px #FFD700);
             animation: targetFloat 2s infinite;
@@ -403,9 +402,9 @@
         /* ИГРА 4: Змейка */
         #game4 {
             width: 100%;
-            max-width: 400px;
+            max-width: 350px;
             height: auto;
-            aspect-ratio: 400/240;
+            aspect-ratio: 350/210;
             border-radius: 20px;
             border: 2px solid #FFD700;
             background: #2c1a0b;
@@ -413,7 +412,7 @@
 
         .controls {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             margin-top: 12px;
             justify-content: center;
         }
@@ -421,10 +420,10 @@
         .ctrl-btn {
             background: rgba(255, 215, 0, 0.2);
             border: 2px solid #FFD700;
-            width: 55px;
-            height: 55px;
-            border-radius: 30px;
-            font-size: 28px;
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            font-size: 26px;
             color: #FFD700;
             cursor: pointer;
             backdrop-filter: blur(5px);
@@ -444,20 +443,20 @@
         .memory-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
+            gap: 6px;
             width: 100%;
-            max-width: 320px;
+            max-width: 300px;
         }
 
         .m-card {
             aspect-ratio: 1;
             background: rgba(255, 215, 0, 0.2);
             border: 2px solid #FFD700;
-            border-radius: 16px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: clamp(24px, 7vw, 32px);
+            font-size: 28px;
             box-shadow: 0 4px 0 #8B3A3A;
             cursor: pointer;
             color: #FFFAF0;
@@ -481,8 +480,8 @@
         /* ИГРА 6: Ноты */
         .notes-area {
             width: 100%;
-            max-width: 320px;
-            height: 220px;
+            max-width: 300px;
+            height: 200px;
             background: rgba(255, 215, 0, 0.1);
             border-radius: 20px;
             border: 2px dashed #FFD700;
@@ -492,7 +491,7 @@
 
         .note {
             position: absolute;
-            font-size: 48px;
+            font-size: 42px;
             cursor: pointer;
             filter: drop-shadow(0 4px 8px #FFD700);
             animation: noteSpin 2s infinite;
@@ -512,10 +511,10 @@
         .nav-btn {
             background: rgba(255, 215, 0, 0.2);
             border: 2px solid #FFD700;
-            width: 60px;
-            height: 60px;
-            border-radius: 35px;
-            font-size: 32px;
+            width: 55px;
+            height: 55px;
+            border-radius: 30px;
+            font-size: 30px;
             color: #FFD700;
             cursor: pointer;
             backdrop-filter: blur(5px);
@@ -535,8 +534,8 @@
             background: rgba(139, 58, 58, 0.3);
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
-            padding: 10px 25px;
-            border-radius: 30px;
+            padding: 10px 22px;
+            border-radius: 28px;
             font-size: 18px;
             color: #FFD700;
             border: 1px solid rgba(255, 215, 0, 0.5);
@@ -585,8 +584,8 @@
         }
 
         .main-photo {
-            width: 180px;
-            height: 180px;
+            width: 160px;
+            height: 160px;
             background: rgba(255, 215, 0, 0.15);
             border-radius: 30px;
             border: 3px solid #FFD700;
@@ -609,17 +608,17 @@
 
         .photo-row {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             justify-content: center;
             margin: 16px 0;
             flex-wrap: wrap;
         }
 
         .photo-frame {
-            width: 90px;
-            height: 90px;
+            width: 80px;
+            height: 80px;
             background: rgba(255, 215, 0, 0.15);
-            border-radius: 20px;
+            border-radius: 18px;
             border: 3px solid #FFD700;
             overflow: hidden;
             position: relative;
@@ -640,7 +639,7 @@
             background: rgba(139, 58, 58, 0.2);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            border-radius: 30px;
+            border-radius: 28px;
             padding: 20px;
             margin: 16px 0;
             border: 2px solid #FFD700;
@@ -649,7 +648,7 @@
         }
 
         .letter h3 {
-            font-size: 28px;
+            font-size: 26px;
             color: #FFD700;
             margin-bottom: 12px;
             font-family: 'Playfair Display', serif;
@@ -666,7 +665,7 @@
         }
 
         .signature {
-            font-size: 26px;
+            font-size: 24px;
             color: #FFD700;
             font-family: 'Dancing Script', cursive;
             border-top: 1px dashed rgba(255, 215, 0, 0.5);
@@ -678,9 +677,9 @@
         .restart {
             background: rgba(255, 215, 0, 0.2);
             border: 2px solid #FFD700;
-            padding: 14px 32px;
+            padding: 14px 28px;
             font-size: 18px;
-            border-radius: 40px;
+            border-radius: 36px;
             color: #FFD700;
             font-weight: 700;
             cursor: pointer;
@@ -689,7 +688,7 @@
             -webkit-backdrop-filter: blur(5px);
             transition: transform 0.2s;
             width: 100%;
-            max-width: 240px;
+            max-width: 220px;
             font-family: 'Playfair Display', serif;
         }
 
@@ -789,27 +788,65 @@
             50% { transform: scale(1.05); }
         }
 
-        /* Оптимизация для маленьких экранов */
-        @media (max-width: 380px) {
-            .book { padding: 12px; }
-            .cover { padding: 20px 12px; }
-            .cover h1 { font-size: 32px; }
-            .cover-emoji { font-size: 48px; }
-            .progress-item { font-size: 12px; padding: 4px 8px; }
-            .page-num { font-size: 14px; padding: 6px 15px; }
-            .march8-badge { font-size: 14px; padding: 6px 12px; }
-            .game-area { min-height: 220px; }
-            .main-photo { width: 150px; height: 150px; }
-            .photo-frame { width: 75px; height: 75px; }
-            .letter h3 { font-size: 24px; }
-            .letter p { font-size: 14px; }
-            .signature { font-size: 22px; }
-            .restart { font-size: 16px; padding: 12px 24px; }
+        @keyframes sunPulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+        }
+
+        /* Специально для iPhone 11 (828x1792) */
+        @media (min-width: 375px) and (max-width: 414px) and (min-height: 800px) {
+            .book {
+                max-width: 360px;
+            }
+            .cover h1 {
+                font-size: 40px;
+            }
+            .cover-emoji {
+                font-size: 56px;
+            }
+            .cover-text p {
+                font-size: 18px;
+            }
+        }
+
+        /* Специально для iPhone 17 Pro Max (предположительно 430x932) */
+        @media (min-width: 428px) and (min-height: 900px) {
+            .book {
+                max-width: 400px;
+            }
+            .cover h1 {
+                font-size: 46px;
+            }
+            .cover-emoji {
+                font-size: 68px;
+            }
+            .cover-text p {
+                font-size: 22px;
+            }
+            .game-area {
+                min-height: 280px;
+            }
+            .main-photo {
+                width: 180px;
+                height: 180px;
+            }
+            .photo-frame {
+                width: 90px;
+                height: 90px;
+            }
+        }
+
+        /* Оптимизация для safe area */
+        @supports (padding: max(0px)) {
+            .book {
+                padding-left: max(16px, env(safe-area-inset-left));
+                padding-right: max(16px, env(safe-area-inset-right));
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Фоновые цветы (меньше для производительности) -->
+    <!-- Фоновые цветы -->
     <div class="floating-flower" style="left: 5%; animation-duration: 15s;">🌷</div>
     <div class="floating-flower" style="left: 30%; animation-duration: 18s;">🌸</div>
     <div class="floating-flower" style="left: 60%; animation-duration: 20s;">🌹</div>
@@ -856,7 +893,7 @@
                     <div class="slide">
                         <h2><span>🌷</span> Весенние цветы <span>🌷</span></h2>
                         <div class="game-area">
-                            <canvas id="game1" width="400" height="240"></canvas>
+                            <canvas id="game1" width="350" height="210"></canvas>
                         </div>
                         <div class="game-hint">Собирай тюльпаны 🌷</div>
                     </div>
@@ -883,7 +920,7 @@
                     <div class="slide">
                         <h2><span>🍎</span> Цветущий сад <span>🍎</span></h2>
                         <div class="game-area" style="flex-direction: column;">
-                            <canvas id="game4" width="400" height="240"></canvas>
+                            <canvas id="game4" width="350" height="210"></canvas>
                             <div class="controls">
                                 <button class="ctrl-btn" onclick="snakeDir('up')">↑</button>
                                 <button class="ctrl-btn" onclick="snakeDir('left')">←</button>
@@ -1060,7 +1097,7 @@
             setInterval(() => {
                 if (completed.g1 || collected.g1 >= max.g1) return;
                 game1Items.push({
-                    x: Math.random() * (canvas1.width - 50) + 25,
+                    x: Math.random() * (canvas1.width - 40) + 20,
                     y: 0,
                     type: Math.random() > 0.3 ? 'flower' : 'cactus',
                     speed: 1 + Math.random() * 2
@@ -1079,7 +1116,7 @@
                 }
 
                 game1Items.forEach(item => {
-                    ctx1.font = '32px Arial';
+                    ctx1.font = '28px Arial';
                     ctx1.shadowColor = '#FFD700';
                     ctx1.shadowBlur = 10;
                     ctx1.fillText(item.type === 'flower' ? '🌷' : '🌵', item.x, item.y);
@@ -1112,7 +1149,7 @@
 
             for (let i = game1Items.length - 1; i >= 0; i--) {
                 const item = game1Items[i];
-                if (Math.hypot(x - item.x, y - item.y) < 20) {
+                if (Math.hypot(x - item.x, y - item.y) < 18) {
                     if (item.type === 'flower') {
                         collected.g1++;
                         if (collected.g1 >= max.g1) completed.g1 = true;
@@ -1213,8 +1250,8 @@
             const item = document.createElement('div');
             item.className = 'target';
             item.textContent = types[Math.floor(Math.random() * types.length)];
-            item.style.left = Math.random() * (area.clientWidth - 50) + 'px';
-            item.style.top = Math.random() * (area.clientHeight - 50) + 'px';
+            item.style.left = Math.random() * (area.clientWidth - 45) + 'px';
+            item.style.top = Math.random() * (area.clientHeight - 45) + 'px';
 
             item.onclick = () => {
                 if (completed.g3 || collected.g3 >= max.g3) return;
@@ -1261,7 +1298,7 @@
         }
 
         function resetSnake() {
-            snake = [{x: 8, y: 5}];
+            snake = [{x: 7, y: 4}];
             snakeDirCurrent = 'right';
             snakeActive = true;
             snakeDead = false;
@@ -1273,8 +1310,8 @@
         function placeFood() {
             do {
                 snakeFood = {
-                    x: Math.floor(Math.random() * 16),
-                    y: Math.floor(Math.random() * 10)
+                    x: Math.floor(Math.random() * 14),
+                    y: Math.floor(Math.random() * 8)
                 };
             } while (snake.some(s => s.x === snakeFood.x && s.y === snakeFood.y));
         }
@@ -1289,7 +1326,7 @@
             else if (snakeDirCurrent === 'up') head.y--;
             else if (snakeDirCurrent === 'down') head.y++;
 
-            if (head.x < 0 || head.x >= 16 || head.y < 0 || head.y >= 10) {
+            if (head.x < 0 || head.x >= 14 || head.y < 0 || head.y >= 8) {
                 snakeDead = true;
                 setTimeout(() => {
                     if (!completed.g4) resetSnake();
@@ -1334,19 +1371,19 @@
                 ctx4.fillStyle = i === 0 ? '#FFD700' : '#FFA500';
                 ctx4.shadowColor = '#FFD700';
                 ctx4.shadowBlur = 10;
-                ctx4.fillRect(seg.x * 25 + 2, seg.y * 24 + 2, 21, 20);
+                ctx4.fillRect(seg.x * 25 + 2, seg.y * 26 + 2, 21, 22);
             });
 
             ctx4.shadowBlur = 15;
-            ctx4.font = '24px Arial';
+            ctx4.font = '22px Arial';
             ctx4.fillStyle = 'white';
-            ctx4.fillText('🍎', snakeFood.x * 25 + 4, snakeFood.y * 24 + 20);
+            ctx4.fillText('🍎', snakeFood.x * 25 + 4, snakeFood.y * 26 + 20);
 
             if (snakeDead) {
                 ctx4.fillStyle = 'rgba(0,0,0,0.5)';
                 ctx4.fillRect(0, 0, canvas4.width, canvas4.height);
                 ctx4.fillStyle = '#FFD700';
-                ctx4.font = '20px "Playfair Display"';
+                ctx4.font = '18px "Playfair Display"';
                 ctx4.textAlign = 'center';
                 ctx4.fillText('🌷 Попробуй ещё', canvas4.width/2, canvas4.height/2);
             }
@@ -1355,7 +1392,7 @@
                 ctx4.fillStyle = 'rgba(255,215,0,0.3)';
                 ctx4.fillRect(0, 0, canvas4.width, canvas4.height);
                 ctx4.fillStyle = '#FFD700';
-                ctx4.font = '22px "Playfair Display"';
+                ctx4.font = '20px "Playfair Display"';
                 ctx4.textAlign = 'center';
                 ctx4.fillText('🌸 Ура!', canvas4.width/2, canvas4.height/2);
             }
@@ -1465,8 +1502,8 @@
             const note = document.createElement('div');
             note.className = 'note';
             note.textContent = '🎵';
-            note.style.left = Math.random() * (area.clientWidth - 50) + 'px';
-            note.style.top = Math.random() * (area.clientHeight - 50) + 'px';
+            note.style.left = Math.random() * (area.clientWidth - 45) + 'px';
+            note.style.top = Math.random() * (area.clientHeight - 45) + 'px';
 
             note.onclick = () => {
                 if (completed.g6 || collected.g6 >= max.g6) return;
